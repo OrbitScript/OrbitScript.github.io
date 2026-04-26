@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suman Kumar Das | Projects</title>
+  <meta name="description" content="GitHub projects by Suman Kumar Das - AI, Automation, Embedded Systems">
+</head>
+<body>
+  <h1>My GitHub Projects</h1>
+  <ul id="repos"></ul>
+
+  <script>
+    fetch("https://api.github.com/users/OrbitScript/repos")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("repos");
+        data.forEach(repo => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${repo.html_url}">${repo.name}</a> - ${repo.description || ""}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
