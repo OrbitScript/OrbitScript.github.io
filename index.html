@@ -125,7 +125,7 @@
       const grid = document.getElementById("repoGrid");
 
       data.forEach(repo => {
-        if (!repo.fork) {
+        if (!repo.fork && repo.name !== "OrbitScript.github.io") {
           const card = document.createElement("div");
           card.className = "card";
 
